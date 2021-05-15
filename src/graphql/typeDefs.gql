@@ -1,0 +1,29 @@
+enum Role {
+  ADMIN
+  TEACHER
+  USER
+}
+
+type User {
+  id: ID!
+  role: Role!
+  name: String!
+  password: String!
+}
+
+type Content {
+  id: ID!
+  userId: ID!
+  name: String!
+  url: String
+  isPublic: Boolean!
+}
+
+type Query {
+  login(name: String!, password: String!): String!
+  getProfile(name: String!): User
+}
+
+type Mutation {
+  publicContent(contentId: ID): Boolean!
+}
